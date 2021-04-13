@@ -11,6 +11,7 @@
 		2F15723424B4C27900FC8D4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15723324B4C27900FC8D4A /* ContentView.swift */; };
 		2F15723824B4C73700FC8D4A /* ARContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15723724B4C73700FC8D4A /* ARContainer.swift */; };
 		8923B3A726202D3B0033A4F1 /* faceTexture.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8923B3A626202D3B0033A4F1 /* faceTexture.metal */; };
+		899D8C9326253BAB003BCFD7 /* TextureToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899D8C9226253BAB003BCFD7 /* TextureToImage.swift */; };
 		89C39A1E262395EE00DFDB83 /* FaceTextureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C39A1D262395EE00DFDB83 /* FaceTextureGenerator.swift */; };
 		89D2C9C724AFAC9100827D2C /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C9AB24AFAC9100827D2C /* ARViewController.swift */; };
 		89D2C9C824AFAC9100827D2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89D2C9AD24AFAC9100827D2C /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 		2F92B1B524C6EC0C00F56422 /* ARVideoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARVideoKit.framework; path = Carthage/Build/iOS/ARVideoKit.framework; sourceTree = "<group>"; };
 		3929C4881E89EC2C00E00B60 /* HeadShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8923B3A626202D3B0033A4F1 /* faceTexture.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = faceTexture.metal; sourceTree = "<group>"; };
+		899D8C9226253BAB003BCFD7 /* TextureToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureToImage.swift; sourceTree = "<group>"; };
 		89C39A1D262395EE00DFDB83 /* FaceTextureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTextureGenerator.swift; sourceTree = "<group>"; };
 		89D2C9AB24AFAC9100827D2C /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		89D2C9AD24AFAC9100827D2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				2F15723224B4C26A00FC8D4A /* Views */,
 				89D2C9BA24AFAC9100827D2C /* Extensions */,
 				89D2C9AC24AFAC9100827D2C /* Resources */,
+				899D8C9226253BAB003BCFD7 /* TextureToImage.swift */,
 			);
 			path = HeadShot;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				8923B3A726202D3B0033A4F1 /* faceTexture.metal in Sources */,
 				2F15723824B4C73700FC8D4A /* ARContainer.swift in Sources */,
 				89D2C9D424AFAC9100827D2C /* ScnMatrix.swift in Sources */,
+				899D8C9326253BAB003BCFD7 /* TextureToImage.swift in Sources */,
 				89C39A1E262395EE00DFDB83 /* FaceTextureGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

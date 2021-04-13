@@ -42,7 +42,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             device: self.sceneView.device!,
             library: self.sceneView.device!.makeDefaultLibrary()!,
             viewportSize: self.view.bounds.size,
-            face: self.scnFaceGeometry!,
+            face: self.scnFaceGeometry,
             textureSize: faceTextureSize)
         
         // Preview
@@ -108,5 +108,25 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 
         scnFaceGeometry.update(from: faceAnchor.geometry)
         faceUvGenerator.update(frame: frame, scene: self.sceneView.scene, headNode: node, geometry: scnFaceGeometry)
+    }
+    
+    // MARK: Export
+    
+    public func exportTextureMapToPhotos() {
+        let close = {
+            Timer.scheduledTimer(withTimeInterval: 2, repeats:false, block: {_ in
+                self.dismiss(animated: true, completion: nil)
+            })
+            return
+        }
+        
+        if let uiImage = textureToImage(faceUvGenerator.texture) {
+            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+            let alert = UIAlertController(title: "Export Successful", message: "Saved texture to photo album", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: close)
+        } else {
+            let alert = UIAlertController(title: "Export Failed", message: "Could not save texture to photo album", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: close)
+        }
     }
 }

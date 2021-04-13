@@ -8,7 +8,9 @@ class FaceTextureGenerator {
     
     private static func renderTargetDescriptor(textureSize: Int) -> MTLTextureDescriptor {
         let renderTargetDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .rgba8Unorm, width: textureSize, height: textureSize, mipmapped: false)
-        renderTargetDescriptor.storageMode = .private
+        // We only set .shared here so we can read the texture for exporting to the photo library
+        // If you don't need this, use .private instead
+        renderTargetDescriptor.storageMode = .shared
         renderTargetDescriptor.usage = [.shaderWrite, .shaderRead, .renderTarget]
         return renderTargetDescriptor;
     }
