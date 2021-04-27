@@ -94,7 +94,9 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             return nil
         }
                 
-        return SCNNode()
+        let node = SCNNode(geometry: scnFaceGeometry)
+        scnFaceGeometry.firstMaterial?.diffuse.contents = faceUvGenerator.texture
+        return node
     }
      
     public func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
