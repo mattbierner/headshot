@@ -69,9 +69,16 @@ vertex FaceTextureInOut faceTextureVertex(const device float3* positionArray [[b
     return out;
 }
 
+float3 gammaCorrection(float3 color) {
+    return float3(
+                  ( color.r > 0.04045 ) ? pow((color.r + 0.055) / 1.055, 2.4) : color.r / 12.92,
+                  ( color.g > 0.04045 ) ? pow((color.g + 0.055) / 1.055, 2.4) : color.g / 12.92,
+                  ( color.b > 0.04045 ) ? pow((color.b + 0.055) / 1.055, 2.4) : color.b / 12.92);
+}
+
 fragment float4 faceTextureFragment(FaceTextureInOut in [[stage_in]],
-                               texture2d<float, access::sample> capturedImageTextureY [[texture(0)]],
-                               texture2d<float, access::sample> capturedImageTextureCbCr [[texture(1)]])
+                                    texture2d<float, access::sample> capturedImageTextureY [[texture(0)]],
+                                    texture2d<float, access::sample> capturedImageTextureCbCr [[texture(1)]])
 {
     constexpr sampler textureSampler(filter::bicubic, address::clamp_to_edge);
         
@@ -91,8 +98,6 @@ fragment float4 faceTextureFragment(FaceTextureInOut in [[stage_in]],
                                 capturedImageTextureCbCr.sample(textureSampler, in.screenSpaceTexCoord).rg, 1.0);
     
     // Convert to RGB
-    const float3 color = (ycbcrToRGBTransform * ycbcr).rgb;
-    
-    // Gamma correction
-    return float4(pow(color, float3(2.2)), 1);
+    const float3 rgbColor = (ycbcrToRGBTransform * ycbcr).rgb;
+    return float4(gammaCorrection(rgbColor), 1);
 }
